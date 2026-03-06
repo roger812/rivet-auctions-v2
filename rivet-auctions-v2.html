@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rivet Auctions | Modern Real Estate & Fine Art</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-gold: #C9974D;
+      --color-teal: #113B3C;
+      --color-charcoal: #2E2E2E;
+      --color-navy: #18344A;
+      --color-cream: #F5EEE8;
+      --color-white: #FFFFFF;
+      --color-text-body: #444444;
+      --color-text-muted: #888888;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Inter', system-ui, sans-serif;
+      --content-max-width: 1220px;
+      --section-padding-y: 80px;
+      --page-padding-x: 56px;
+      --radius-btn: 7px;
+      --radius-card: 11px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); color: var(--color-charcoal); line-height: 1.6; background: #FFF; -webkit-font-smoothing: antialiased; }
+
+    header {
+      position: sticky; top: 0; z-index: 1000; height: 92px; background: #F3EEE7;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 var(--page-padding-x); border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .logo-link { display: flex; align-items: center; text-decoration: none; color: inherit; }
+    .logo-ra { font-family: var(--font-serif); font-size: 64px; font-weight: 700; color: var(--color-gold); line-height: 1; margin-right: 12px; }
+    .logo-text { font-size: 14px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.15; }
+    nav { display: flex; gap: 40px; }
+    nav a { font-size: 17px; font-weight: 500; text-decoration: none; color: #1F1F1F; transition: 0.2s; }
+    nav a:hover { color: var(--color-gold); }
+    .btn-gold { 
+      background: var(--color-gold); color: #FFF; padding: 14px 24px; border-radius: var(--radius-btn);
+      font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; border: none; cursor: pointer;
+    }
+
+    .hero {
+      position: relative; height: 410px;
+      background: linear-gradient(135deg, #1c2e1c 0%, #2a422a 40%, #3a5a3a 70%, #2E2E2E 100%);
+      display: flex; align-items: center; overflow: hidden;
+    }
+    .hero::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 75% 50%, rgba(201,151,77,0.18) 0%, transparent 55%);
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.25) 70%, rgba(0,0,0,0.1) 100%);
+      z-index: 1;
+    }
+    .hero-content { 
+      position: relative; z-index: 2; padding-left: var(--page-padding-x); max-width: 720px; 
+    }
+    .hero h1 { font-family: var(--font-serif); font-size: 62px; color: #FFF; line-height: 1.1; margin-bottom: 22px; }
+    .hero p { font-size: 19px; color: rgba(255,255,255,0.9); margin-bottom: 34px; max-width: 520px; }
+    .hero-btns { display: flex; gap: 16px; }
+    .btn-white { background: #FFF; color: var(--color-charcoal); }
+
+    .offer-section { background: var(--color-cream); padding: var(--section-padding-y) 0; }
+    .container { max-width: var(--content-max-width); margin: 0 auto; padding: 0 var(--page-padding-x); }
+    .section-header { text-align: center; margin-bottom: 60px; }
+    .section-header h2 { font-family: var(--font-serif); font-size: 54px; color: var(--color-charcoal); margin-bottom: 18px; }
+    .section-header p { font-size: 18px; color: #666; max-width: 720px; margin: 0 auto; }
+
+    .editorial-wrapper { position: relative; display: block; overflow: hidden; }
+    .contact-card { 
+      float: right; width: 380px; background: #FFF; padding: 35px; border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10); margin-left: 45px; margin-bottom: 30px;
+    }
+    .contact-card h3 { font-family: var(--font-serif); font-size: 34px; line-height: 1.1; margin-bottom: 20px; }
+    .phone-bar {
+      background: var(--color-teal); color: #FFF; height: 58px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      font-weight: 500; font-size: 19px; text-decoration: none; margin-bottom: 20px;
+    }
+    .contact-card .caption { font-size: 13px; color: #777; line-height: 1.5; margin-bottom: 20px; }
+
+    .step-row { display: flex; align-items: flex-start; gap: 0; margin-bottom: 40px; width: calc(100% - 425px); }
+    .step-card { 
+      background: #FFF; padding: 30px 24px; border-radius: 12px; text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07); flex: 1; min-height: 200px;
+    }
+    .step-card svg { margin-bottom: 15px; }
+    .badge-line { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px; }
+    .gold-badge { 
+      background: var(--color-gold); color: #FFF; width: 26px; height: 26px; 
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700;
+    }
+    .step-title { font-size: 15px; font-weight: 600; color: var(--color-charcoal); }
+    .step-card p { font-size: 14px; color: #666; }
+    .connector { 
+      width: 44px; height: 44px; background: #FFF; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12); margin: 0 -22px; z-index: 5;
+      align-self: center; font-size: 18px; color: #888;
+    }
+
+    .editorial-copy { max-width: 700px; }
+    .pull-quote { font-weight: 600; font-size: 15px; color: #444; margin-bottom: 12px; }
+    .divider { height: 1px; background: #D0C8BF; margin-bottom: 24px; }
+    .editorial-copy h3 { font-family: var(--font-serif); font-size: 52px; line-height: 1.15; margin-bottom: 24px; }
+    .editorial-copy p { font-size: 16px; line-height: 1.75; color: var(--color-text-body); margin-bottom: 20px; }
+
+    .dark-section { background: var(--color-navy); padding: var(--section-padding-y) 0; color: #FFF; }
+    .dark-inner { max-width: var(--content-max-width); margin: 0 auto; padding: 0 var(--page-padding-x); }
+    .dark-section h2 { font-family: var(--font-serif); font-size: 48px; margin-bottom: 40px; }
+    .feature-list { display: flex; flex-direction: column; gap: 20px; }
+    .feature-item { display: flex; align-items: flex-start; gap: 18px; }
+    .check { 
+      background: var(--color-gold); width: 22px; height: 22px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      font-size: 11px; margin-top: 4px;
+    }
+    .feature-item b { font-size: 16px; }
+    .feature-item span { color: rgba(255,255,255,0.82); font-size: 15px; }
+
+    footer {
+      background: #121E2B; padding: 32px var(--page-padding-x);
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 12.5px; color: rgba(255,255,255,0.65); border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    footer a { color: inherit; text-decoration: none; }
+    footer a:hover { color: var(--color-gold); }
+
+    @media (max-width: 992px) {
+      .contact-card, .step-row { float: none; width: 100%; margin: 0 0 30px 0; }
+      .connector { display: none; }
+      .hero h1 { font-size: 48px; }
+      header { padding: 0 24px; }
+      nav { gap: 20px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/" class="logo-link">
+      <span class="logo-ra">RA</span>
+      <div class="logo-text">RIVET<br>AUCTIONS</div>
+    </a>
+    <nav>
+      <a href="#">Home</a><a href="#">Real Estate</a><a href="#">Fine Art</a><a href="#">About Us</a>
+    </nav>
+    <button class="btn-gold">CONSIGN WITH US ›</button>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Modern Auctions<br>for Real Estate & Fine Art</h1>
+      <p>Maximize your property's value through competitive bidding and MLS exposure.</p>
+      <div class="hero-btns">
+        <button class="btn-gold btn-white">SELL YOUR PROPERTY</button>
+        <button class="btn-gold">CONSIGN ARTWORK</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="offer-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>The Rivet Competitive Offer System</h2>
+        <p>Competitive real estate sales combining MLS exposure and auction-style bidding.</p>
+      </div>
+      <div class="editorial-wrapper">
+        <div class="contact-card">
+          <h3>Call or Text for Current Highest Offer</h3>
+          <p>Speak directly with a Rivet auction specialist to learn where the current offer stands and decide if you'd like to compete.</p>
+          <a href="tel:5127969395" class="phone-bar">
+            <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M20 15.5c-1.2 0-2.4-.2-3.6-.6-.3-.1-.7 0-1 .2l-2.2 2.2c-2.8-1.4-5.1-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1-.3-1.1-.5-2.3-.5-3.5 0-.6-.4-1-1-1H4c-.6 0-1 .4-1 1 0 9.4 7.6 17 17 17 .6 0 1-.4 1-1v-3.5c0-.6-.4-1-1-1z"/></svg>
+            (512) 796-9395
+          </a>
+          <p class="caption">Most buyers are only one small step away from securing the property. A quick call keeps the process moving and helps serious buyers stay competitive.</p>
+          <button class="btn-gold" style="width: 100%">CALL OR TEXT NOW ›</button>
+        </div>
+        <div class="step-row">
+          <div class="step-card">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#2E2E2E" stroke-width="1.5"><path d="M3 10l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V10z"/><path d="M9 21V12h6v9"/></svg>
+            <div class="badge-line"><span class="gold-badge">1</span> <span class="step-title">List your property</span></div>
+            <p>on the MLS with Rivet.</p>
+          </div>
+          <div class="connector">›</div>
+          <div class="step-card">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#2E2E2E" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            <div class="badge-line"><span class="gold-badge">2</span> <span class="step-title">Interested buyers contact us</span></div>
+            <p>to learn where the highest offer stands.</p>
+          </div>
+        </div>
+        <div class="editorial-copy">
+          <p class="pull-quote">Competition drives the final sale price higher.</p>
+          <div class="divider"></div>
+          <h3>Powered by the MLS, Enhanced by Auction Strategy</h3>
+          <p>Your property is still marketed through the Multiple Listing Service, ensuring exposure to the largest pool of qualified buyers and real estate agents.</p>
+          <p>Rivet adds a second layer to the traditional listing process. When multiple buyers express interest, we activate a competitive bidding environment where buyers are encouraged to strengthen their offers.</p>
+          <p>This combination of MLS exposure and auction strategy helps sellers capture the highest possible price for their property.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark-section">
+    <div class="dark-inner">
+      <h2>Why Sellers Choose Rivet</h2>
+      <div class="feature-list">
+        <div class="feature-item"><div class="check">✓</div><p><b>Competitive Environment:</b> <span>We create buyer competition to drive up offers.</span></p></div>
+        <div class="feature-item"><div class="check">✓</div><p><b>Guided Bidding:</b> <span>Our auction specialists assist buyers to reach their strongest offers.</span></p></div>
+        <div class="feature-item"><div class="check">✓</div><p><b>Expert Auctioneers:</b> <span>Licensed auctioneers leveraging years of negotiation experience.</span></p></div>
+        <div class="feature-item"><div class="check">✓</div><p><b>Full MLS Exposure:</b> <span>Listings appear on the MLS to reach the largest audience.</span></p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="mailto:info@rivetauctions.com">info@rivetauctions.com</a>
+    <span>(512) 796-9395</span>
+    <div><a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a></div>
+  </footer>
+</body>
+</html>
