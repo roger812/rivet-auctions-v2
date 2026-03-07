@@ -59,6 +59,18 @@
     .hero-content { 
       position: relative; z-index: 2; padding-left: var(--page-padding-x); max-width: 720px; 
     }
+    /* Add container for hero image on the right side of the hero section */
+    .hero-image-container {
+      flex: 1;
+      height: 100%;
+      position: relative;
+      z-index: 0;
+    }
+    .hero-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
     .hero h1 { font-family: var(--font-serif); font-size: 62px; color: #FFF; line-height: 1.1; margin-bottom: 22px; }
     .hero p { font-size: 19px; color: rgba(255,255,255,0.9); margin-bottom: 34px; max-width: 520px; }
     .hero-btns { display: flex; gap: 16px; }
@@ -161,6 +173,10 @@
         <button class="btn-gold btn-white">SELL YOUR PROPERTY</button>
         <button class="btn-gold">CONSIGN ARTWORK</button>
       </div>
+    </div>
+    <!-- New hero image container for the right side of the hero section -->
+    <div class="hero-image-container">
+      <img src="hero.jpg" alt="Luxury home">
     </div>
   </section>
 
